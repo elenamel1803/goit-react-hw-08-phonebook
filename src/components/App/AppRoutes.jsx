@@ -17,12 +17,10 @@ const App = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-
         <Route element={<PublicRoute />}>
           <Route path="register" element={<Register />} />
           <Route path="login" element={<Login />} />
         </Route>
-
         <Route element={<PrivateRoute />}>
           <Route path="contacts" element={<Contacts />} />
         </Route>

@@ -38,12 +38,15 @@ const authSlice = createSlice({
       .addCase(signup.pending, pending)
       .addCase(signup.fulfilled, fulfilled)
       .addCase(signup.rejected, rejected)
+
       .addCase(login.pending, pending)
       .addCase(login.fulfilled, fulfilled)
       .addCase(login.rejected, rejected)
+
       .addCase(current.pending, pending)
       .addCase(current.fulfilled, fulfilled)
       .addCase(current.rejected, currentRejected)
+
       .addCase(logout.pending, pending)
       .addCase(logout.fulfilled, logoutFulfilled)
       .addCase(logout.rejected, rejected);

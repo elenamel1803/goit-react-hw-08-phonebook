@@ -36,7 +36,7 @@ const RegisterForm = () => {
       email: email.trim(),
       password: password.trim(),
     };
-    console.log('newUser :>> ', newUser);
+
     dispatch(signup(newUser));
 
     reset();

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { formatName, formatNumber } from 'services/helpers';
-import { addContact } from '../../redux/operations';
+import { addContact } from '../../redux/contacts-filter/operations';
 import { Form, Label, Input, Button } from './ContactForm.styled';
 
 const ContactForm = () => {
@@ -30,7 +30,7 @@ const ContactForm = () => {
 
     const newContact = {
       name: formatName(name.trim()),
-      phone: formatNumber(number.trim()),
+      number: formatNumber(number.trim()),
     };
 
     dispatch(addContact(newContact));

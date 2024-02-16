@@ -13,7 +13,6 @@ export const signup = createAsyncThunk(
       const data = await requestSignup(body);
       return data;
     } catch (error) {
-      console.log('error :>> ', error);
       return rejectWithValue(error.response.data.message || error.message);
     }
   }
@@ -26,7 +25,6 @@ export const login = createAsyncThunk(
       const data = await requestLogin(body);
       return data;
     } catch (error) {
-      console.log('error :>> ', error);
       return rejectWithValue(error.response.data.message || error.message);
     }
   }
@@ -37,6 +35,7 @@ export const current = createAsyncThunk(
   async (_, { rejectWithValue, getState }) => {
     try {
       const { auth } = getState();
+      console.log('auth :>> ', auth);
       const data = await requestCurrent(auth.token);
       return data;
     } catch (error) {

@@ -5,8 +5,8 @@ import {
   selectError,
   selectIsLoading,
   selectVisibleContacts,
-} from '../../redux/selectors';
-import { fetchContacts } from '../../redux/operations';
+} from '../../redux/contacts-filter/selectors';
+import { fetchContacts } from '../../redux/contacts-filter/operations';
 import { Error, List } from './ContactList.styled';
 import Loader from 'components/Loader/Loader';
 

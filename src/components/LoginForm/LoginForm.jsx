@@ -31,7 +31,7 @@ const LoginForm = () => {
       email: email.trim(),
       password: password.trim(),
     };
-    console.log('user :>> ', user);
+
     dispatch(login(user));
 
     reset();

@@ -1,7 +1,7 @@
 import ContactForm from '../../components/ContactForm/ContactForm';
 import Filter from '../../components/Filter/Filter';
 import ContactList from '../../components/ContactList/ContactList';
-import { AppWrap, ContactsTitle, Gradient, Title } from './Contacts.styled';
+import { AppWrap, ContactsTitle, Title } from './Contacts.styled';
 
 const Contacts = () => {
   return (
@@ -13,8 +13,6 @@ const Contacts = () => {
         <Filter />
         <ContactList />
       </AppWrap>
-
-      {/* <Gradient /> */}
     </>
   );
 };
