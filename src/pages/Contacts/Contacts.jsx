@@ -5,15 +5,13 @@ import { AppWrap, ContactsTitle, Title } from './Contacts.styled';
 
 const Contacts = () => {
   return (
-    <>
-      <AppWrap>
-        <Title>Phonebook</Title>
-        <ContactForm />
-        <ContactsTitle>Contacts</ContactsTitle>
-        <Filter />
-        <ContactList />
-      </AppWrap>
-    </>
+    <AppWrap>
+      <Title>Phonebook</Title>
+      <ContactForm />
+      <ContactsTitle>Contacts</ContactsTitle>
+      <Filter />
+      <ContactList />
+    </AppWrap>
   );
 };
 

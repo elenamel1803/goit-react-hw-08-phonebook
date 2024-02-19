@@ -18,16 +18,23 @@ const fulfilled = (state, { payload }) => {
   state.error = null;
 };
 
-const logoutFulfilled = state => {
-  state.user = {};
-  state.token = '';
-  state.isLogin = false;
+const currentFulfilled = (state, { payload }) => {
+  state.user = payload;
+  state.isLogin = true;
   state.isLoading = false;
+  state.error = null;
 };
 
 const currentRejected = state => {
   state.isLoading = false;
   state.token = '';
+};
+
+const logoutFulfilled = state => {
+  state.user = {};
+  state.token = '';
+  state.isLogin = false;
+  state.isLoading = false;
 };
 
 const authSlice = createSlice({
@@ -44,7 +51,7 @@ const authSlice = createSlice({
       .addCase(login.rejected, rejected)
 
       .addCase(current.pending, pending)
-      .addCase(current.fulfilled, fulfilled)
+      .addCase(current.fulfilled, currentFulfilled)
       .addCase(current.rejected, currentRejected)
 
       .addCase(logout.pending, pending)

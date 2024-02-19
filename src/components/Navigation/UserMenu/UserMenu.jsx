@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectAuthUser } from '../../redux/auth/authSelectors';
-import { logout } from '../../redux/auth/authOperations';
+import { selectAuthUser } from '../../../redux/auth/authSelectors';
+import { logout } from '../../../redux/auth/authOperations';
+import { Wrap } from './UserMenu.styled';
 
 const UserMenu = () => {
   const { name } = useSelector(selectAuthUser);
@@ -9,12 +10,12 @@ const UserMenu = () => {
   const onLogout = () => dispatch(logout());
 
   return (
-    <div>
+    <Wrap>
       <p>{name}</p>
       <button type="button" onClick={onLogout}>
         Logout
       </button>
-    </div>
+    </Wrap>
   );
 };
 

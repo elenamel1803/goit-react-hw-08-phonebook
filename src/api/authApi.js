@@ -6,7 +6,6 @@ const authInstance = axios.create({
 
 const setToken = token => {
   if (token) {
-    console.log('token :>> ', token);
     return (authInstance.defaults.headers.authorization = `Bearer ${token}`);
   }
   authInstance.defaults.headers.authorization = '';
@@ -36,9 +35,8 @@ export const requestCurrent = async token => {
 };
 
 export const requestLogout = async () => {
-  const { data } = await authInstance.post('/users/logout');
+  await authInstance.post('/users/logout');
   setToken();
-  return data;
 };
 
 export default authInstance;

@@ -9,8 +9,8 @@ export const Link = styled(NavLink)`
   }
 `;
 
-export const List = styled.ul`
+export const Wrap = styled.div`
   display: flex;
   gap: 20px;
-  justify-content: space-between;
+  justify-content: flex-end;
 `;
