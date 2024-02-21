@@ -6,6 +6,7 @@ export const Link = styled(NavLink)`
 
   &.active {
     font-weight: bold;
+    color: #1976d2;
   }
 `;
 
@@ -14,6 +15,7 @@ export const Wrap = styled.nav`
   gap: 20px;
   justify-content: space-between;
   align-items: center;
+  width: auto;
 `;
 
 export const Box = styled.div`

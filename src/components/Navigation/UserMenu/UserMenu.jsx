@@ -1,6 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectAuthUser } from '../../../redux/auth/authSelectors';
 import { logout } from '../../../redux/auth/authOperations';
+import LogoutIcon from '@mui/icons-material/Logout';
+import { Button, Typography } from '@mui/material';
 import { Wrap } from './UserMenu.styled';
 
 const UserMenu = () => {
@@ -11,10 +13,12 @@ const UserMenu = () => {
 
   return (
     <Wrap>
-      <p>{name}</p>
-      <button type="button" onClick={onLogout}>
+      <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
+        Welcome, {name}
+      </Typography>
+      <Button onClick={onLogout} variant="contained" endIcon={<LogoutIcon />}>
         Logout
-      </button>
+      </Button>
     </Wrap>
   );
 };

@@ -1,11 +1,16 @@
-import { LinkToHomePage, Title } from './NotFoundPage.styled';
+import { Link } from 'react-router-dom';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Button } from '@mui/material';
+import { StyledContainer, StyledTypography } from './NotFoundPage.styled';
 
 const NotFoundPage = () => {
   return (
-    <div>
-      <Title>Cannot found this page</Title>
-      <LinkToHomePage to="/">To home page</LinkToHomePage>
-    </div>
+    <StyledContainer>
+      <StyledTypography variant="h1">Cannot found this page</StyledTypography>
+      <Button variant="outlined" size="large" startIcon={<ArrowBackIcon />}>
+        <Link to="/">To home page</Link>
+      </Button>
+    </StyledContainer>
   );
 };
 

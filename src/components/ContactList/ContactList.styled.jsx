@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { IconButton, Typography } from '@mui/material';
 
 export const List = styled.ul`
   display: flex;
@@ -7,32 +8,14 @@ export const List = styled.ul`
   margin: 0 auto;
 `;
 
-export const Item = styled.li`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  &:not(:last-child) {
-    margin-bottom: 10px;
-  }
-`;
-
-export const Text = styled.p`
-  margin: 0;
-  margin-right: 10px;
-`;
-
-export const Button = styled.button`
-  border-radius: 4px;
-  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
-    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+export const StyledIconButton = styled(IconButton)`
   &:hover {
-    background-color: #7396d8;
+    color: ${props => props.theme.palette.primary.main};
+    background-color: transparent;
   }
 `;
 
-export const Error = styled.p`
+export const StyledTypography = styled(Typography)`
   text-align: center;
-  color: red;
-  font-size: 18px;
+  font-size: 20px;
 `;

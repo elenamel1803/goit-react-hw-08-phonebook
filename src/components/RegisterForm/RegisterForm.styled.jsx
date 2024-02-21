@@ -1,27 +1,20 @@
 import styled from '@emotion/styled';
+import { Box, TextField } from '@mui/material';
 
-export const Form = styled.form`
-  max-width: 400px;
-  padding: 10px;
-  text-align: center;
-  margin: 0 auto;
-`;
-
-export const Label = styled.label`
+export const StyledBox = styled(Box)`
   display: flex;
   flex-direction: column;
-  margin-bottom: 10px;
+  align-items: center;
 `;
 
-export const Input = styled.input`
+export const StyledTextField = styled(TextField)`
+  background-color: #fff;
   border-radius: 4px;
-  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
-    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
-  margin-bottom: 10px;
-  padding: 5px;
-  max-width: 160px;
-  &:focus {
-    border: 3px solid #7396d8;
-    outline: none;
-  }
+`;
+
+export const Error = styled.p`
+  text-align: center;
+  color: red;
+  font-size: 20px;
+  margin-top: 30px;
 `;

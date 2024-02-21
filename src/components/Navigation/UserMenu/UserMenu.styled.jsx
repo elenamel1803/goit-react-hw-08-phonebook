@@ -5,4 +5,6 @@ export const Wrap = styled.div`
   gap: 20px;
   justify-content: flex-end;
   align-items: center;
+  font-weight: 400;
+  text-align: end;
 `;

@@ -1,8 +1,8 @@
-import UserMenu from 'components/Navigation/UserMenu/UserMenu';
-import { Box, Link, Wrap } from './MainMenu.styled';
 import { useSelector } from 'react-redux';
 import { selectAuthIsLogin } from '../../../redux/auth/authSelectors';
 import AuthMenu from '../AuthMenu/AuthMenu';
+import UserMenu from 'components/Navigation/UserMenu/UserMenu';
+import { Box, Link, Wrap } from './MainMenu.styled';
 
 const MainMenu = () => {
   const isLogin = useSelector(selectAuthIsLogin);

@@ -1,6 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { deleteContact } from '../../redux/contacts-filter/operations';
-import { Item, Button, Text } from './ContactList.styled';
+import { ListItem } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { StyledIconButton } from './ContactList.styled';
 
 const ContactListItem = ({ contact }) => {
   const { id, name, number } = contact;
@@ -12,12 +14,20 @@ const ContactListItem = ({ contact }) => {
   };
 
   return (
-    <Item>
-      <Text id={id}>
-        {name}: {number}
-      </Text>
-      <Button onClick={onDeleteContact}>Delete</Button>
-    </Item>
+    <ListItem
+      id={id}
+      secondaryAction={
+        <StyledIconButton
+          edge="end"
+          aria-label="delete"
+          onClick={onDeleteContact}
+        >
+          <DeleteIcon />
+        </StyledIconButton>
+      }
+    >
+      {name}: {number}
+    </ListItem>
   );
 };
 

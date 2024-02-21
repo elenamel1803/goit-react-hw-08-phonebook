@@ -1,25 +1,17 @@
 import styled from '@emotion/styled';
+import { Typography } from '@mui/material';
 
-export const AppWrap = styled.div`
-  padding-bottom: 20px;
+export const ContactsWrap = styled.div`
+  padding: 20px 0;
 `;
 
-// export const Gradient = styled.div`
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   background: linear-gradient(rgb(101, 101, 238), rgb(236, 206, 211));
-//   z-index: -1;
-// `;
-
-export const Title = styled.h1`
-  text-align: center;
-  margin-bottom: 10px;
-`;
-
-export const ContactsTitle = styled.h2`
-  text-align: center;
+export const StyledTypography = styled(Typography)`
   margin-bottom: 20px;
+  text-align: center;
+`;
+
+export const StyledPTypography = styled(Typography)`
+  text-align: center;
+  font-size: 20px;
+  margin-top: 20px;
 `;

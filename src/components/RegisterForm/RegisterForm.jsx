@@ -1,12 +1,15 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { signup } from '../../redux/auth/authOperations';
-import { Form, Label, Input } from './RegisterForm.styled';
+import { selectAuthError } from '../../redux/auth/authSelectors';
+import { Button } from '@mui/material';
+import { Error, StyledBox, StyledTextField } from './RegisterForm.styled';
 
 const RegisterForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const error = useSelector(selectAuthError);
 
   const dispatch = useDispatch();
 
@@ -49,43 +52,53 @@ const RegisterForm = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <div>
-        <Label>Name</Label>
-        <Input
+    <>
+      <StyledBox
+        onSubmit={handleSubmit}
+        component="form"
+        sx={{
+          '& > :not(style)': { m: 1, width: '25ch' },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <StyledTextField
+          id="outlined-basic"
+          label="Name"
+          variant="outlined"
           type="text"
           name="name"
           value={name}
           required
           onChange={handleChange}
-          placeholder="Entrer name"
         />
-      </div>
-      <div>
-        <Label>Email</Label>
-        <Input
+        <StyledTextField
+          id="outlined-basic"
+          label="Email"
+          variant="outlined"
           type="email"
           name="email"
           value={email}
           required
           onChange={handleChange}
-          placeholder="Enter email"
         />
-      </div>
-      <div>
-        <Label>Password</Label>
-        <Input
+        <StyledTextField
+          id="outlined-password-input"
+          label="Password"
           type="password"
+          autoComplete="current-password"
+          variant="outlined"
           name="password"
           value={password}
           required
           onChange={handleChange}
-          placeholder="Enter password"
         />
-      </div>
-
-      <button type="submit">Register</button>
-    </Form>
+        <Button type="submit" variant="contained" size="large">
+          Register
+        </Button>
+      </StyledBox>
+      {error && <Error>{error}</Error>}
+    </>
   );
 };
 

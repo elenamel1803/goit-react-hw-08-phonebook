@@ -1,11 +1,14 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../redux/auth/authOperations';
-import { Form, Label, Input } from './LoginForm.styled';
+import { selectAuthError } from '../../redux/auth/authSelectors';
+import { Button } from '@mui/material';
+import { Error, StyledBox, StyledTextField } from './LoginForm.styled';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const error = useSelector(selectAuthError);
 
   const dispatch = useDispatch();
 
@@ -43,32 +46,42 @@ const LoginForm = () => {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <div>
-        <Label>Email</Label>
-        <Input
+    <>
+      <StyledBox
+        onSubmit={handleSubmit}
+        component="form"
+        sx={{
+          '& > :not(style)': { m: 1, width: '25ch' },
+        }}
+        noValidate
+      >
+        <StyledTextField
+          id="outlined-basic"
+          label="Email"
+          variant="outlined"
           type="email"
           name="email"
           value={email}
           required
           onChange={handleChange}
-          placeholder="Enter email"
         />
-      </div>
-      <div>
-        <Label>Password</Label>
-        <Input
+        <StyledTextField
+          id="outlined-password-input"
+          label="Password"
           type="password"
+          autoComplete="current-password"
+          variant="outlined"
           name="password"
           value={password}
           required
           onChange={handleChange}
-          placeholder="Enter password"
         />
-      </div>
-
-      <button type="submit">Login</button>
-    </Form>
+        <Button type="submit" variant="contained" size="large">
+          Login
+        </Button>
+      </StyledBox>
+      {error && <Error>{error}</Error>}
+    </>
   );
 };
 

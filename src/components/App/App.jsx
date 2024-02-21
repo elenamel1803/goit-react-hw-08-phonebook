@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { current } from '../../redux/auth/authOperations';
-
 import AppRoutes from './AppRoutes';
+import { current } from '../../redux/auth/authOperations';
+import { Global } from '@emotion/react';
+import { globalStyles } from 'globalStyles/globalStyles';
+import { Gradient } from './App.styled';
 
 function App() {
   const dispatch = useDispatch();
@@ -12,9 +14,11 @@ function App() {
   }, [dispatch]);
 
   return (
-    <div>
+    <>
       <AppRoutes />
-    </div>
+      <Global styles={globalStyles} />
+      <Gradient />
+    </>
   );
 }
 

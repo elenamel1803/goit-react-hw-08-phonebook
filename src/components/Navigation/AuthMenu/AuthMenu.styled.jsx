@@ -6,6 +6,7 @@ export const Link = styled(NavLink)`
 
   &.active {
     font-weight: bold;
+    color: #1976d2;
   }
 `;
 

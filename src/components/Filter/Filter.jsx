@@ -1,11 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter } from '../../redux/contacts-filter/filterSlice';
 import { selectFilter } from '../../redux/contacts-filter/selectors';
-import { Input } from './Filter.styled';
+import { StyledBox, StyledTextField } from './Filter.styled';
 
 const Filter = () => {
   const filter = useSelector(selectFilter);
-
   const dispatch = useDispatch();
 
   const handleFilterChange = ({ target }) => {
@@ -13,13 +12,26 @@ const Filter = () => {
   };
 
   return (
-    <Input
-      type="text"
-      name="filter"
-      value={filter}
-      onChange={handleFilterChange}
-      placeholder="Search by name"
-    />
+    <>
+      <StyledBox
+        component="form"
+        sx={{
+          '& .MuiTextField-root': { m: 1, width: '25ch' },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <StyledTextField
+          id="outlined-search"
+          label="Search by name"
+          type="search"
+          variant="outlined"
+          name="filter"
+          value={filter}
+          onChange={handleFilterChange}
+        />
+      </StyledBox>
+    </>
   );
 };
 
